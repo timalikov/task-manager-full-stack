@@ -1,0 +1,11 @@
+# Ignore .env files
+*.env
+
+# Ignore IDE settings
+.idea/
+
+# Ignore compiled files (optional, if applicable)
+*.o
+*.log
+assignment_2/
+
