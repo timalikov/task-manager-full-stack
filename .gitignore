@@ -18,4 +18,5 @@ assignment_2/
 
 *.vscode/*
 */.angular/cache
+.DS_Store
 
