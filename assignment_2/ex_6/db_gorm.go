@@ -8,9 +8,23 @@ import (
 	"strconv"
 )
 
+// GetUsersGORM fetches users with optional filtering and pagination
+// @Summary Get all users
+// @Description Get users with optional filtering by age and pagination
+// @Tags users
+// @Accept  json
+// @Produce  json
+// @Param   age       query   int     false  "Filter by Age"
+// @Param   page      query   int     false  "Page number"
+// @Param   page_size query   int     false  "Page size"
+// @Param   sort_by   query   string  false  "Sort by column name"
+// @Success 200 {array} model.User
+// @Failure 400 {object} model.ErrorResponse
+// @Failure 500 {object} model.ErrorResponse
+// @Router /gorm/users [get]
 func GetUsersGORM(db *gorm.DB) gin.HandlerFunc {
 	return func(c *gin.Context) {
-		var users []model.User2
+		var users []model.User
 		ageQuery := c.Query("age")
 		sortBy := c.DefaultQuery("sort_by", "name")
 		pageQuery := c.DefaultQuery("page", "1")

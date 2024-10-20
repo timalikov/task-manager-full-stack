@@ -2,10 +2,8 @@
 package main
 
 import (
-	"assignment_2/ex_1"
 	"assignment_2/ex_2"
 	"assignment_2/ex_6"
-	"log"
 )
 
 func main() {
@@ -77,7 +75,7 @@ func main() {
 	//}
 
 	// ############# Exercise 5 ####################
-	//db := ex_5.ConnectDB()
+	//db := ex_2.ConnectDB()
 	//
 	//if err := model.AutoMigrate(db); err != nil {
 	//	log.Fatalf("Failed to migrate database: %v", err)
@@ -114,19 +112,18 @@ func main() {
 	//}
 
 	// ############# Exercise 6 ####################
-	dbSQL, err := ex_1.ConnectDB()
-	if err != nil {
-		log.Fatalf("Failed to connect to SQL: %v", err)
-	}
+	//dbSQL, err := ex_1.ConnectDB()
+	//if err != nil {
+	//	log.Fatalf("Failed to connect to SQL: %v", err)
+	//}
 
 	dbGORM := ex_2.ConnectDB()
 
-	// Set up routes for both SQL and GORM-based operations
-	r := ex_6.SetupRoutesSQL(dbSQL)
-	r.Run(":8080") // For SQL
+	//r := ex_6.SetupRoutesSQL(dbSQL)
+	//r.Run(":8080")
 
-	// For GORM
+	////For GORM
 	r2 := ex_6.SetupRoutesGORM(dbGORM)
-	r2.Run(":8081") // For GORM
+	r2.Run(":8080")
 
 }

@@ -7,13 +7,13 @@ import (
 )
 
 func CreateTable(db *sql.DB) {
-	query := `
-	CREATE TABLE IF NOT EXISTS users (
-		id SERIAL PRIMARY KEY,
-		name TEXT,
-		age INT
-	);`
-
+	var query = `
+		CREATE TABLE IF NOT EXISTS users (
+			id SERIAL PRIMARY KEY,
+			name TEXT,
+			age INT
+			);
+		`
 	_, err := db.Exec(query)
 	if err != nil {
 		log.Fatalf("Failed to create table: %v", err)
