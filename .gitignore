@@ -9,3 +9,13 @@
 *.log
 assignment_2/
 
+*/dist
+*/tmp
+*/out-tsc
+*/bazel-out
+
+*/node_modules
+
+*.vscode/*
+*/.angular/cache
+

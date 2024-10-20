@@ -1,0 +1,25 @@
+<mat-card *ngFor="let task of tasks; trackBy: trackById">
+  <mat-card-header>
+    <mat-card-title>{{ task.title }}</mat-card-title>
+    <mat-card-subtitle>{{ task.description }}</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <p><strong>Status:</strong> {{ task.status }}</p>
+
+    <p><strong>Priority: </strong> 
+      <span *ngIf="task.priority === 1" class="text-danger" >High</span>
+      <span *ngIf="task.priority === 2" class="text-warning">Medium</span>
+      <span *ngIf="task.priority === 3" class="text-success">Low</span>
+    </p>
+
+    <p><strong>Deadline:</strong> {{ task.deadline | date: 'short' }}</p>
+
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button mat-button [routerLink]="['/edit-task', task.id]">EDIT TASK</button>
+    <button mat-button (click)="removeTask(task.id)">MARK AS DONE</button>
+  </mat-card-actions>
+</mat-card>
+<br>
